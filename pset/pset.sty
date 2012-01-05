@@ -6,18 +6,18 @@
 
 % new maketitle command
 \renewcommand{\maketitle}{%
-	\thispagestyle{plain}%
-	\begin{center}%
-		\rule{7in}{0.2mm}\vspace{1em}
-		{\Large\bf \@title \par}%
-		{\large
-			\lineskip .75em%
-			\begin{tabular}[t]{c}%
-				\emph{\@author}
-			\end{tabular}\par}%
-		{\large \@date \par}%
-	\end{center}%
-	\vspace{1em}
+  \thispagestyle{plain}%
+  \begin{center}%
+    \rule{7in}{0.2mm}\vspace{1em}
+    {\Large\bf \@title \par}%
+    {\large
+      \lineskip .75em%
+      \begin{tabular}[t]{c}%
+        \emph{\@author}
+      \end{tabular}\par}%
+    {\large \@date \par}%
+  \end{center}%
+  \vspace{1em}
 }
 
 % theorem environments
@@ -49,10 +49,10 @@
 % subproblems environment
 \newcounter{subparts}[thm]
 \newenvironment{sub}{\par
-	\stepcounter{subparts}
-	\leftskip0.35in
-	\parindent-0.35in
-	\textbf{(\alph{subparts})}
-	\;\,\normalsize\itshape
+  \stepcounter{subparts}
+  \leftskip0.35in
+  \parindent-0.35in
+  \textbf{(\alph{subparts})}
+  \;\,\normalsize\itshape
 }{
-	\upshape\parindent0.25in\par\leftskip0in}
+  \upshape\parindent0.25in\par\leftskip0in}
