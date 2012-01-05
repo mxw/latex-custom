@@ -1,0 +1,28 @@
+% include common
+\usepackage{common}
+
+% theorem environments
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{ex}{Example}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{obs}[thm]{Observation}
+
+% custom section heading format
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                     {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                     {2.3ex \@plus.2ex}%
+                                     {\normalfont\large\bfseries\itshape}}
+\renewcommand*{\@seccntformat}[1]{%
+  Lecture \csname the#1\endcsname \, -
+}
+
+% add'l amsthm overrides
+\renewcommand{\proofname}{\textbf{Proof}}

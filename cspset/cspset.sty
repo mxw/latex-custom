@@ -1,0 +1,42 @@
+% include common
+\usepackage{pset}
+
+% pseudocode
+
+%% typewriter font
+\DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
+%% custom verbatim environment
+\DefineVerbatimEnvironment{code}{Verbatim}
+  {commandchars=\\\{\},numbers=left,numbersep=10pt,xleftmargin=0.5in,gobble=4}
+
+%% keywords
+\newcommand{\type}[1]{\textbf{#1}}
+\newcommand{\com}[1]{/\textsuperscript{*} #1 \textsuperscript{*}/}
+\newcommand{\pcif}{\textbf{if}}
+\newcommand{\pcelif}{\textbf{elif}}
+\newcommand{\pcelse}{\textbf{else}}
+\newcommand{\forin}[2]{\textbf{for} #1 \textbf{in} #2}
+\newcommand{\forup}[2]{\textbf{for} #1 \textbf{to} #2}
+\newcommand{\fordown}[2]{\textbf{for} #1 \textbf{downto} #2}
+\newcommand{\forea}[2]{\textbf{foreach} #1 \textbf{in} #2}
+\newcommand{\while}{\textbf{while}}
+\newcommand{\ret}{\textbf{return}}
+
+% miscellaneous commands
+\newcommand{\ld}{\lambda}
+\newcommand{\func}[1]{\texttt{#1}}
+\newcommand{\var}[1]{\texttt{#1}}
+
+% operating semantics
+\newcommand{\opsem}[4][]{\textsc{#2}\dfrac{\hquad #3 \hquad}{\hquad #4 \hquad}{#1}}
+\newcommand{\opkw}[2][0]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{0}}{
+\mathsf{#2}}{}
+\ifthenelse{\equal{#1}{1}}{
+\mathsf{#2}\:}{}
+\ifthenelse{\equal{#1}{2}}{
+\:\mathsf{#2}\:}{}
+}}
+}

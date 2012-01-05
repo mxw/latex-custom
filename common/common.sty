@@ -1,0 +1,180 @@
+% packages
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{array}
+\usepackage{commath}
+\usepackage{fancyhdr,fancyvrb}
+\usepackage{graphicx}
+\usepackage[letterpaper,text={7in,9in},centering]{geometry}
+\usepackage{ifthen}
+\usepackage{mathrsfs}
+%\usepackage{mdwlist}
+\usepackage{multicol}
+\usepackage{pifont}
+\usepackage{setspace}
+\usepackage{stackrel}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+\usepackage[normalem]{ulem}
+\usepackage[all]{xy}
+
+% other declarations
+\pagestyle{fancy}
+
+% abbreviations
+\newcommand{\term}{\uline}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\hquad}{\mspace{9mu}}
+\newcommand{\opr}{\@ifstar{\operatorname}{\operatorname *}}
+
+% proof labels
+\newcommand{\forw}{$\Longrightarrow\:\,$}
+\newcommand{\back}{$\Longleftarrow\:\,$}
+\newcommand{\contraction}{$\Rightarrow\Leftarrow$}
+\newcommand{\tfae}[2]{\emph{#1 \boldmath$\Rightarrow\,$#2.}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% aliasing
+\newcommand{\diag}{\Delta}
+\newcommand{\bs}{\backslash}
+\newcommand{\simrel}{\!\sim\,}
+\newcommand{\divs}{\!\mid\!}
+\newcommand{\ndivs}{\!\nmid\!}
+\newcommand{\subeq}{\subseteq}
+\newcommand{\supeq}{\supseteq}
+\newcommand{\lhdeq}{\trianglelefteq}
+\newcommand{\trans}{\pitchfork}
+\newcommand{\bound}{\partial}
+
+% accents
+\newcommand{\openset}{\,\open{\subeq}\,}
+\newcommand{\open}[1]{\mathring{#1}}
+\newcommand{\clos}[1]{\overline{#1}}
+\newcommand{\resid}[1]{\overline{#1}}
+\newcommand{\cover}[1]{\widetilde{#1}}
+\makeatletter
+\def\imod#1{\allowbreak\mkern5mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+% delimiters
+\let\xps=\del   % ()
+%\sbr           % []
+%\cbr,\set      % {}
+%\eval          % |
+%\envert,\abs   % ||
+%\enVert,\norm  %
+
+\newcommand{\xpfrac}[3][-1]{\del[#1]{\frac{#1}{#2}}}
+
+\providecommand{\abr}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\left\langle#2\right\rangle}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\langle#2\rangle}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\bigl\langle#2\bigr\rangle}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\Bigl\langle#2\Bigr\rangle}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\biggl\langle#2\biggr\rangle}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\Biggl\langle#2\Biggr\rangle}{}
+}} % \ensuremath{\mathinner{
+}  % Angle BRackets
+
+\providecommand{\dsb}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\!\left\llbracket#2\right\rrbracket\!}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\!\llbracket#2\rrbracket\!}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\!\bigl\llbracket#2\bigr\rrbracket\!}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\!\Bigl\llbracket#2\Bigr\rrbracket\!}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\!\biggl\llbracket#2\biggr\rrbracket\!}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\!\Biggl\llbracket#2\Biggr\rrbracket\!}{}
+}} % \ensuremath{\mathinner{
+}  % Double Square Brackets
+
+\providecommand{\ceil}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\left\lceil#2\right\rceil}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\lceil#2\rceil}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\bigl\lceil#2\bigr\rceil}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\Bigl\lceil#2\Bigr\rceil}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\biggl\lceil#2\biggr\rceil}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\Biggl\lceil#2\Biggr\rceil}{}
+}} % \ensuremath{\mathinner{
+}  % Ceiling delimiters
+
+\providecommand{\floor}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\left\lfloor#2\right\rfloor}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\lfloor#2\rfloor}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\bigl\lfloor#2\bigr\rfloor}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\Bigl\lfloor#2\Bigr\rfloor}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\biggl\lfloor#2\biggr\rfloor}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\Biggl\lfloor#2\Biggr\rfloor}{}
+}} % \ensuremath{\mathinner{
+}  % Floor delimiters
+
+%% normal-sized delimiter shortcuts
+\newcommand{\angs}[1]{\abr[0]{#1}}
+\newcommand{\bbks}[1]{\dsb[0]{#1}}
+\newcommand{\verts}[1]{\envert[0]{#1}}
+\newcommand{\Verts}[1]{\enVert[0]{#1}}
+\newcommand{\ceils}[1]{\ceil[0]{#1}}
+\newcommand{\floors}[1]{\floor[0]{#1}}
+\let\gen=\angs
+
+% arrows
+\newcommand{\loopto}{\looparrowright}
+\newcommand{\hookto}{\hookrightarrow}
+\newcommand{\doubto}{\twoheadrightarrow}
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand*{\longtwoheadrightarrow}{\ensuremath{\relbar\joinrel\twoheadrightarrow}}
+
+\newcommand{\inj}{\longhookrightarrow}
+\newcommand{\surj}{\longtwoheadrightarrow}
+\newcommand{\bij}{\longleftrightarrow}
+
+\newcommand{\xto}[1]{\xrightarrow{\,#1\,}}
+\newcommand{\xlongto}[1]{\xrightarrow{\;\;#1\;\;}}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\from}{\leftarrow}
+\newcommand{\longfrom}{\longleftarrow}
+\newcommand{\xfrom}[1]{\xleftarrow{\,#1\,}}
+\newcommand{\xlongfrom}[1]{\xleftarrow{\;\;#1\;\;}}
+
+\renewcommand{\implies}{\Longrightarrow}
+\newcommand{\Implies}{\;\Longrightarrow\;}
+
+% operators
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\grph}{graph}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Diag}{\Delta}
+
+% xy-pic directions
+\makeatother
+\newdir{ (}{{}*!/-5pt/@^{(}}
+\newdir{+(}{{}*!/-5pt/@_{(}}
+\makeatletter
