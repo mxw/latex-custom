@@ -8,7 +8,7 @@
 
 %% custom verbatim environment
 \DefineVerbatimEnvironment{code}{Verbatim}
-  {commandchars=\\\{\},numbers=left,numbersep=10pt,xleftmargin=0.5in,gobble=4}
+  {commandchars=\\\{\},numbers=left,numbersep=10pt,xleftmargin=0.5in,gobble=2}
 
 %% keywords
 \newcommand{\type}[1]{\textbf{#1}}
@@ -22,9 +22,9 @@
 \newcommand{\forea}[2]{\textbf{foreach} #1 \textbf{in} #2}
 \newcommand{\while}{\textbf{while}}
 \newcommand{\ret}{\textbf{return}}
+\newcommand{\print}{\textbf{print}}
 
 % miscellaneous commands
-\newcommand{\ld}{\lambda}
 \newcommand{\func}[1]{\texttt{#1}}
 \newcommand{\var}[1]{\texttt{#1}}
 
@@ -32,11 +32,47 @@
 \newcommand{\opsem}[4][]{\textsc{#2}\dfrac{\hquad #3 \hquad}{\hquad #4 \hquad}{#1}}
 \newcommand{\opkw}[2][0]{
 \ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{
+\,\mathsf{#2}}{}
 \ifthenelse{\equal{#1}{0}}{
 \mathsf{#2}}{}
 \ifthenelse{\equal{#1}{1}}{
-\mathsf{#2}\:}{}
+\mathsf{#2}\,}{}
 \ifthenelse{\equal{#1}{2}}{
-\:\mathsf{#2}\:}{}
+\,\mathsf{#2}\,}{}
 }}
 }
+\newcommand{\optw}[2][0]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{
+\,\textsf{\textbf{#2}}}{}
+\ifthenelse{\equal{#1}{0}}{
+\textsf{\textbf{#2}}}{}
+\ifthenelse{\equal{#1}{1}}{
+\textsf{\textbf{#2}}\,}{}
+\ifthenelse{\equal{#1}{2}}{
+\,\textsf{\textbf{#2}}\,}{}
+}}
+}
+
+% lambda calculus
+\newcommand{\ld}[1]{\lambda #1.\:}
+\newcommand{\Ld}[1]{\Lambda #1.\:}
+\newcommand{\Fa}[1]{\forall #1.\:}
+
+\newcommand{\dnot}[2]{\mathcal{#1}\bbks{#2}}
+
+\newcommand{\tnote}[2]{#1 \!:\! #2}
+\newcommand{\ldt}{\@ifstar
+                  \ldtStar
+                  \ldtNoStar
+}
+\newcommand{\ldtNoStar}[2]{\lambda \tnote{#1}{#2}.\:}
+\newcommand{\ldtStar}[2]{\lambda \tnote{#1}{#2}\!.\:}
+
+\newcommand{\tjdg}{\@ifstar
+                   \tjdgStar
+                   \tjdgNoStar
+}
+\newcommand{\tjdgNoStar}[3][]{#1 \vdash \tnote{#2}{#3}}
+\newcommand{\tjdgStar}[4]{\tnote{#1}{#2} \vdash \tnote{#3}{#4}}
