@@ -1,57 +1,73 @@
-% packages
-\usepackage{amsfonts,amsmath,amssymb,amsthm}
-\usepackage{array}
-\usepackage{commath}
-\usepackage{enumitem}
-\usepackage{fancyhdr,fancyvrb}
-\usepackage[pdftex]{graphicx}
-\usepackage{ifthen}
-\usepackage{mathrsfs}
-\usepackage{multicol}
-\usepackage{pifont}
-\usepackage{sectsty}
-\usepackage{setspace}
-\usepackage{stackrel}
-\usepackage{stmaryrd}
-\usepackage{tensor}
-\usepackage[normalem]{ulem}
-\usepackage[obeyspaces,hyphens,spaces]{url}
-\usepackage[all,cmtip]{xy}
+%
+%  LaTeX common.sty
+%
+%  @author Max Wang
+%
 
-% other declarations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Packages.
+%
+
+% AMS standard.
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% General.
+\usepackage{array}            % array augmentation
+\usepackage{xspace}           % optional terminal space
+\usepackage{fancyhdr}         % header / footer
+\usepackage{ifthen}           % conditionals
+
+% Font and formatting.
+\usepackage{bm}               % bolded math text
+\usepackage{mathrsfs}         % math script
+\usepackage{pifont}           % postscript fonts
+\usepackage[normalem]{ulem}   % underline
+\usepackage[obeyspaces,hyphens,spaces]{url}
+\usepackage{sectsty}          % section header styles
+
+% Symbols.
+\usepackage{commath}          % common math symbols
+\usepackage{stmaryrd}         % computer science symbols
+\usepackage{tipa}             % IPA symbols
+
+% Augmented functionality.
+\usepackage{setspace}         % n-times spacing
+\usepackage{stackrel}         % stacked elements
+\usepackage{tensor}           % subscripts / superscripts
+
+% Environments.
+\usepackage{multicol}         % multi-column documents
+\usepackage{tabu}             % tabular
+\usepackage{enumitem}         % enumerate, itemize
+\usepackage{fancyvrb}         % verbatim
+\usepackage{multirow}         % multi-row table cells
+
+% Graphics.
+\usepackage[pdftex]{graphicx} % enhanced graphics
+\usepackage[all,cmtip]{xy}    % arrow diagrams
+
+
+%%% Fancy page style. %%%
 \pagestyle{fancy}
 
-% abbreviations
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Abbreviations and aliasing.
+%
+
+% Frequently-used abbreviations.
 \newcommand{\term}{\uline}
 \newcommand{\ds}{\displaystyle}
 \newcommand{\hquad}{\mspace{9mu}}
 \newcommand{\opr}{\@ifstar{\operatorname}{\operatorname *}}
+\newcommand{\numberthis}{\addtocounter{equation}{1}\tag{\theequation}}
 
-\newcommand{\defmap}[5]{
-  \begin{align*}
-    {#1} : {#2} &\longto {#3} \\
-    {#4} &\longmapsto {#5}
-  \end{align*}
-}
-
-% general environments
-\newenvironment{itemize*}%
-  {\begin{itemize}[itemsep=0pt,parsep=0pt]}%
-  {\end{itemize}}
-
-\newenvironment{enumerate*}%
-  {\begin{enumerate}[itemsep=0pt,parsep=0pt]}%
-  {\end{enumerate}}
-
-% proof commands
-\newcommand{\forw}{$\Longrightarrow\:\,$}
-\newcommand{\back}{$\Longleftarrow\:\,$}
-\newcommand{\contraction}{$\Rightarrow\Leftarrow$}
-\newcommand{\tfae}[2]{\emph{#1 \boldmath$\Rightarrow\,$#2.}}
-\renewcommand{\qedsymbol}{$\blacksquare$}
-\newenvironment{pf}[1][Proof]{\begin{proof}[#1]\renewcommand{\qedsymbol}{}}{\end{proof}}
-
-% aliasing
+% Math symbol aliases.
 \newcommand{\diag}{\Delta}
 \newcommand{\bs}{\backslash}
 \newcommand{\simrel}{\!\sim\,}
@@ -67,7 +83,7 @@
 \newcommand{\trans}{\pitchfork}
 \newcommand{\bound}{\partial}
 
-%% blackboard bold
+% Blackboard bold.
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -75,104 +91,22 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
 
-% accents
+% Accents.
 \newcommand{\openset}{\,\open{\subeq}\,}
 \newcommand{\open}[1]{\mathring{#1}}
 \newcommand{\clos}[1]{\overline{#1}}
 \newcommand{\resid}[1]{\overline{#1}}
 \newcommand{\cover}[1]{\widetilde{#1}}
-\makeatletter
-\def\imod#1{\allowbreak\mkern5mu({\operator@font mod}\,\,#1)}
-\makeatother
 
-% delimiters
-\let\xps=\del   % ()
-%\sbr           % []
-%\cbr,\set      % {}
-%\eval          % |
-%\envert,\abs   % ||
-%\enVert,\norm  %
+\newcommand{\rg}{\@ifstar{\@underring}{\r}}
+\newcommand{\@ring}[1]{\r{#1}}
+\newcommand{\@underring}[1]{\textipa{\r*{#1}}}
 
-\newcommand{\xpfrac}[3][-1]{\del[#1]{\frac{#1}{#2}}}
+% Arrows.
+\newcommand{\rarrow}{\textrightarrow\xspace}
+\newcommand{\larrow}{\textleftarrow\xspace}
 
-\providecommand{\abr}[2][-1]{
-\ensuremath{\mathinner{
-\ifthenelse{\equal{#1}{-1}}{ % if
-\left\langle#2\right\rangle}{}
-\ifthenelse{\equal{#1}{0}}{ % if
-\langle#2\rangle}{}
-\ifthenelse{\equal{#1}{1}}{ % if
-\bigl\langle#2\bigr\rangle}{}
-\ifthenelse{\equal{#1}{2}}{ % if
-\Bigl\langle#2\Bigr\rangle}{}
-\ifthenelse{\equal{#1}{3}}{ % if
-\biggl\langle#2\biggr\rangle}{}
-\ifthenelse{\equal{#1}{4}}{ % if
-\Biggl\langle#2\Biggr\rangle}{}
-}} % \ensuremath{\mathinner{
-}  % Angle BRackets
-
-\providecommand{\dsb}[2][-1]{
-\ensuremath{\mathinner{
-\ifthenelse{\equal{#1}{-1}}{ % if
-\left\llbracket#2\right\rrbracket}{}
-\ifthenelse{\equal{#1}{0}}{ % if
-\llbracket#2\rrbracket}{}
-\ifthenelse{\equal{#1}{1}}{ % if
-\bigl\llbracket#2\bigr\rrbracket}{}
-\ifthenelse{\equal{#1}{2}}{ % if
-\Bigl\llbracket#2\Bigr\rrbracket}{}
-\ifthenelse{\equal{#1}{3}}{ % if
-\biggl\llbracket#2\biggr\rrbracket}{}
-\ifthenelse{\equal{#1}{4}}{ % if
-\Biggl\llbracket#2\Biggr\rrbracket}{}
-}} % \ensuremath{\mathinner{
-}  % Double Square Brackets
-
-\providecommand{\ceil}[2][-1]{
-\ensuremath{\mathinner{
-\ifthenelse{\equal{#1}{-1}}{ % if
-\left\lceil#2\right\rceil}{}
-\ifthenelse{\equal{#1}{0}}{ % if
-\lceil#2\rceil}{}
-\ifthenelse{\equal{#1}{1}}{ % if
-\bigl\lceil#2\bigr\rceil}{}
-\ifthenelse{\equal{#1}{2}}{ % if
-\Bigl\lceil#2\Bigr\rceil}{}
-\ifthenelse{\equal{#1}{3}}{ % if
-\biggl\lceil#2\biggr\rceil}{}
-\ifthenelse{\equal{#1}{4}}{ % if
-\Biggl\lceil#2\Biggr\rceil}{}
-}} % \ensuremath{\mathinner{
-}  % Ceiling delimiters
-
-\providecommand{\floor}[2][-1]{
-\ensuremath{\mathinner{
-\ifthenelse{\equal{#1}{-1}}{ % if
-\left\lfloor#2\right\rfloor}{}
-\ifthenelse{\equal{#1}{0}}{ % if
-\lfloor#2\rfloor}{}
-\ifthenelse{\equal{#1}{1}}{ % if
-\bigl\lfloor#2\bigr\rfloor}{}
-\ifthenelse{\equal{#1}{2}}{ % if
-\Bigl\lfloor#2\Bigr\rfloor}{}
-\ifthenelse{\equal{#1}{3}}{ % if
-\biggl\lfloor#2\biggr\rfloor}{}
-\ifthenelse{\equal{#1}{4}}{ % if
-\Biggl\lfloor#2\Biggr\rfloor}{}
-}} % \ensuremath{\mathinner{
-}  % Floor delimiters
-
-%% normal-sized delimiter shortcuts
-\newcommand{\angs}[1]{\abr[0]{#1}}
-\newcommand{\bbks}[1]{\!\dsb[0]{#1}}
-\newcommand{\verts}[1]{\envert[0]{#1}}
-\newcommand{\Verts}[1]{\enVert[0]{#1}}
-\newcommand{\ceils}[1]{\ceil[0]{#1}}
-\newcommand{\floors}[1]{\floor[0]{#1}}
-\let\gen=\angs
-
-% arrows
+\newcommand{\To}{\Rightarrow}
 \newcommand{\loopto}{\looparrowright}
 \newcommand{\hookto}{\hookrightarrow}
 \newcommand{\doubto}{\twoheadrightarrow}
@@ -197,7 +131,134 @@
 \renewcommand{\implies}{\Longrightarrow}
 \newcommand{\Implies}{\;\Longrightarrow\;}
 
-% operators
+% Proof commands.
+\newcommand{\forw}{$\Longrightarrow\:\,$}
+\newcommand{\back}{$\Longleftarrow\:\,$}
+\newcommand{\contraction}{$\Rightarrow\Leftarrow$}
+\newcommand{\tfae}[2]{\emph{#1 \boldmath$\Rightarrow\,$#2.}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Environments.
+%
+
+\newenvironment{itemize*}%
+  {\begin{itemize}[itemsep=0pt,parsep=0pt]}%
+  {\end{itemize}}
+
+\newenvironment{enumerate*}%
+  {\begin{enumerate}[itemsep=0pt,parsep=0pt]}%
+  {\end{enumerate}}
+
+\newenvironment{pf}[1][Proof]%
+  {\begin{proof}[#1]\renewcommand{\qedsymbol}{}}%
+  {\end{proof}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Delimiters.
+%
+
+\let\xps=\del   % ()
+%\sbr           % []
+%\cbr,\set      % {}
+%\eval          % |
+%\envert,\abs   % ||
+%\enVert,\norm  %
+
+\newcommand{\xpfrac}[3][-1]{\del[#1]{\frac{#1}{#2}}}
+
+% Angle BRackets.
+\providecommand{\abr}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\left\langle#2\right\rangle}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\langle#2\rangle}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\bigl\langle#2\bigr\rangle}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\Bigl\langle#2\Bigr\rangle}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\biggl\langle#2\biggr\rangle}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\Biggl\langle#2\Biggr\rangle}{}
+}} % \ensuremath{\mathinner{
+}
+
+% Double Square Brackets.
+\providecommand{\dsb}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\left\llbracket#2\right\rrbracket}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\llbracket#2\rrbracket}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\bigl\llbracket#2\bigr\rrbracket}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\Bigl\llbracket#2\Bigr\rrbracket}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\biggl\llbracket#2\biggr\rrbracket}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\Biggl\llbracket#2\Biggr\rrbracket}{}
+}} % \ensuremath{\mathinner{
+}
+
+% Ceiling.
+\providecommand{\ceil}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\left\lceil#2\right\rceil}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\lceil#2\rceil}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\bigl\lceil#2\bigr\rceil}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\Bigl\lceil#2\Bigr\rceil}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\biggl\lceil#2\biggr\rceil}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\Biggl\lceil#2\Biggr\rceil}{}
+}} % \ensuremath{\mathinner{
+}
+
+% Floor.
+\providecommand{\floor}[2][-1]{
+\ensuremath{\mathinner{
+\ifthenelse{\equal{#1}{-1}}{ % if
+\left\lfloor#2\right\rfloor}{}
+\ifthenelse{\equal{#1}{0}}{ % if
+\lfloor#2\rfloor}{}
+\ifthenelse{\equal{#1}{1}}{ % if
+\bigl\lfloor#2\bigr\rfloor}{}
+\ifthenelse{\equal{#1}{2}}{ % if
+\Bigl\lfloor#2\Bigr\rfloor}{}
+\ifthenelse{\equal{#1}{3}}{ % if
+\biggl\lfloor#2\biggr\rfloor}{}
+\ifthenelse{\equal{#1}{4}}{ % if
+\Biggl\lfloor#2\Biggr\rfloor}{}
+}} % \ensuremath{\mathinner{
+}
+
+% Normal-sized delimiter shortcuts.
+\newcommand{\angs}[1]{\abr[0]{#1}}
+\newcommand{\bbks}[1]{\!\dsb[0]{#1}}
+\newcommand{\verts}[1]{\envert[0]{#1}}
+\newcommand{\Verts}[1]{\enVert[0]{#1}}
+\newcommand{\ceils}[1]{\ceil[0]{#1}}
+\newcommand{\floors}[1]{\floor[0]{#1}}
+\let\gen=\angs
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Math commands.
+%
+
+% Operators.
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\coker}{coker}
@@ -206,9 +267,16 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\Map}{Map}
 \DeclareMathOperator{\Diag}{\Delta}
+\def\imod#1{\allowbreak\mkern5mu({\operator@font mod}\,\,#1)}
 
-% xy-pic directions
-\makeatother
+% XY-pic directions.
 \newdir{ (}{{}*!/-5pt/@^{(}}
 \newdir{+(}{{}*!/-5pt/@_{(}}
-\makeatletter
+
+% Define a map.
+\newcommand{\defmap}[5]{
+  \begin{align*}
+    {#1} : {#2} &\longto {#3} \\
+    {#4} &\longmapsto {#5}
+  \end{align*}
+}
