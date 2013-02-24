@@ -1,4 +1,6 @@
-Some custom LaTeX packages I made for my various Things.  Most of the
-interesting bits were ripped from various places (e.g., the delimiters are
-copypasta'd from commath).  Feel free to nag, criticize, and fix my style.
-I have no awareness of any LaTeX style guidelines...
+Some custom LaTeX packages that are mostly unoriginal.  Most of the interesting
+bits were ripped from StackOverflow answers or various blogs which can be found
+by a quick Google search.  In addition:
+
+- The delimiters are modeled after the commath package.
+- The applekeys package is from http://dl.dropbox.com/u/10932738/index.html
