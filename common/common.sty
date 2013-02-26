@@ -66,6 +66,7 @@
 \newcommand{\hquad}{\mspace{9mu}}
 \newcommand{\opr}{\@ifstar{\operatorname}{\operatorname *}}
 \newcommand{\numberthis}{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\ipa}[1]{\textipa{#1}}
 
 % Math symbol aliases.
 \newcommand{\diag}{\Delta}
@@ -137,6 +138,15 @@
 \newcommand{\contraction}{$\Rightarrow\Leftarrow$}
 \newcommand{\tfae}[2]{\emph{#1 \boldmath$\Rightarrow\,$#2.}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Commands.
+%
+
+\DeclareTextCommand{\_}{OT1}{%
+  \leavevmode \kern.06em\vbox{\hrule width.6em}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
