@@ -1,0 +1,25 @@
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+
+\newcommand{\negt}[1]{\hspace{0.005in}\overline{#1}\hspace{0.005in}}
+
+\tikzstyle{branch}=[fill,shape=circle,minimum size=3pt,inner sep=0pt]
+
+\tikzstyle{not}=[not gate US, draw]
+\tikzstyle{notr}=[not gate US, draw, rotate=-90]
+
+\tikzstyle{and2}=[and gate US, draw, logic gate inputs=nn]
+\tikzstyle{and3}=[and gate US, draw, logic gate inputs=nnn]
+\tikzstyle{and4}=[and gate US, draw, logic gate inputs=nnnn]
+
+\tikzstyle{or2}=[or gate US, draw, logic gate inputs=nn]
+\tikzstyle{or3}=[or gate US, draw, logic gate inputs=nnn]
+\tikzstyle{or4}=[or gate US, draw, logic gate inputs=nnnn]
+
+\tikzstyle{nor2}=[nor gate US, draw, logic gate inputs=nn]
+\tikzstyle{nor3}=[nor gate US, draw, logic gate inputs=nnn]
+\tikzstyle{nor4}=[nor gate US, draw, logic gate inputs=nnnn]
+
+\tikzstyle{nand2}=[nor gate US, draw, logic gate inputs=nn]
+\tikzstyle{nand3}=[nor gate US, draw, logic gate inputs=nnn]
+\tikzstyle{nand4}=[nor gate US, draw, logic gate inputs=nnnn]
