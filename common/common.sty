@@ -67,7 +67,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  Abbreviations and aliasing.
+%  Math abbreviations and aliases.
 %
 
 % Frequently-used abbreviations.
@@ -140,19 +140,38 @@
 \newcommand{\rarrow}{\textrightarrow\xspace}
 \newcommand{\larrow}{\textleftarrow\xspace}
 
-% Text aliases.
-\newcommand{\us}{\textunderscore}
-\newcommand{\tld}{$\sim$}
-
-\newcommand{\ipa}[1]{\textipa{#1}}
-\newcommand{\textgk}[1]{\begin{greek}#1\end{greek}}
-
 % Proof commands.
 \newcommand{\forw}{$\Longrightarrow\:\,$}
 \newcommand{\back}{$\Longleftarrow\:\,$}
 \newcommand{\contraction}{$\Rightarrow\Leftarrow$}
 \newcommand{\tfae}[2]{\emph{#1 \boldmath$\Rightarrow\,$#2.}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Text aliases.
+%
+
+% Subscript and superscript.
+\makeatletter
+\newcommand{\textsubscript}[1]{\@textsubscript{\selectfont#1}}
+\def\@textsubscript#1{{\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}}
+\newcommand{\textbothscript}[2]{%
+  \@textbothscript{\selectfont#1}{\selectfont#2}}
+\def\@textbothscript#1#2{%
+  {\m@th\ensuremath{%
+    ^{\mbox{\fontsize\sf@size\z@#1}}%
+    _{\mbox{\fontsize\sf@size\z@#2}}}}}
+
+\newcommand{\tsub}[1]{\textsubscript{#1}}
+\newcommand{\tsup}[1]{\textsuperscript{#1}}
+
+\newcommand{\us}{\textunderscore}
+\newcommand{\tld}{$\sim$}
+
+\newcommand{\ipa}[1]{\textipa{#1}}
+\newcommand{\textgk}[1]{\begin{greek}#1\end{greek}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
