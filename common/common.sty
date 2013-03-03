@@ -76,7 +76,6 @@
 \newcommand{\hquad}{\mspace{9mu}}
 \newcommand{\opr}{\@ifstar{\operatorname}{\operatorname *}}
 \newcommand{\numberthis}{\addtocounter{equation}{1}\tag{\theequation}}
-\newcommand{\ipa}[1]{\textipa{#1}}
 
 % Math symbol aliases.
 \newcommand{\diag}{\Delta}
@@ -114,10 +113,10 @@
 \newcommand{\@underring}[1]{\textipa{\r*{#1}}}
 
 % Arrows.
-\newcommand{\rarrow}{\textrightarrow\xspace}
-\newcommand{\larrow}{\textleftarrow\xspace}
-
 \newcommand{\To}{\Rightarrow}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\from}{\leftarrow}
+\newcommand{\longfrom}{\longleftarrow}
 \newcommand{\loopto}{\looparrowright}
 \newcommand{\hookto}{\hookrightarrow}
 \newcommand{\doubto}{\twoheadrightarrow}
@@ -133,14 +132,20 @@
 
 \newcommand{\xto}[1]{\xrightarrow{\,#1\,}}
 \newcommand{\xlongto}[1]{\xrightarrow{\;\;#1\;\;}}
-\newcommand{\longto}{\longrightarrow}
-\newcommand{\from}{\leftarrow}
-\newcommand{\longfrom}{\longleftarrow}
 \newcommand{\xfrom}[1]{\xleftarrow{\,#1\,}}
 \newcommand{\xlongfrom}[1]{\xleftarrow{\;\;#1\;\;}}
 
 \renewcommand{\implies}{\Longrightarrow}
 \newcommand{\Implies}{\;\Longrightarrow\;}
+\newcommand{\rarrow}{\textrightarrow\xspace}
+\newcommand{\larrow}{\textleftarrow\xspace}
+
+% Text aliases.
+\newcommand{\us}{\textunderscore}
+\newcommand{\tld}{$\sim$}
+
+\newcommand{\ipa}[1]{\textipa{#1}}
+\newcommand{\textgk}[1]{\begin{greek}#1\end{greek}}
 
 % Proof commands.
 \newcommand{\forw}{$\Longrightarrow\:\,$}
