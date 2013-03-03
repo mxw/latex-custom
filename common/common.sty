@@ -156,7 +156,7 @@
 %
 
 \DeclareTextCommand{\_}{OT1}{%
-  \leavevmode \kern.06em\vbox{\hrule width.6em}}
+  \leavevmode \kern.06em\vbox{\hrule width.45em}\kern.06em}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,6 +175,8 @@
 \newenvironment{pf}[1][Proof]%
   {\begin{proof}[#1]\renewcommand{\qedsymbol}{}}%
   {\end{proof}}
+
+\makesavenoteenv[tabunote]{tabular}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
