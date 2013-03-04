@@ -67,11 +67,30 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  Math abbreviations and aliases.
+%  Environments.
 %
 
-% Frequently-used abbreviations.
-\newcommand{\term}{\uline}
+\newenvironment{itemize*}%
+  {\begin{itemize}[itemsep=0pt,parsep=0pt]}%
+  {\end{itemize}}
+
+\newenvironment{enumerate*}%
+  {\begin{enumerate}[itemsep=0pt,parsep=0pt]}%
+  {\end{enumerate}}
+
+\newenvironment{pf}[1][Proof]%
+  {\begin{proof}[#1]\renewcommand{\qedsymbol}{}}%
+  {\end{proof}}
+
+\makesavenoteenv[tabunote]{tabular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Math commands.
+%
+
+% Common abbreviations.
 \newcommand{\ds}{\displaystyle}
 \newcommand{\hquad}{\mspace{9mu}}
 \newcommand{\opr}{\@ifstar{\operatorname}{\operatorname *}}
@@ -108,37 +127,16 @@
 \newcommand{\resid}[1]{\overline{#1}}
 \newcommand{\cover}[1]{\widetilde{#1}}
 
-\newcommand{\rg}{\@ifstar{\@underring}{\r}}
-\newcommand{\@ring}[1]{\r{#1}}
-\newcommand{\@underring}[1]{\textipa{\r*{#1}}}
-
-% Arrows.
-\newcommand{\To}{\Rightarrow}
-\newcommand{\longto}{\longrightarrow}
-\newcommand{\from}{\leftarrow}
-\newcommand{\longfrom}{\longleftarrow}
-\newcommand{\loopto}{\looparrowright}
-\newcommand{\hookto}{\hookrightarrow}
-\newcommand{\doubto}{\twoheadrightarrow}
-\newcommand{\lrto}{\leftrightarrow}
-\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
-\newcommand*{\longtwoheadrightarrow}{\ensuremath{\relbar\joinrel\twoheadrightarrow}}
-
-\newcommand{\inj}{\longhookrightarrow}
-\newcommand{\surj}{\longtwoheadrightarrow}
-\newcommand{\bij}{\longleftrightarrow}
-\newcommand{\xyinj}[2]{\xymatrix{{#1} \ar@{ (->}[r] & {#2}}}
-\newcommand{\xysurj}[2]{\xymatrix{{#1} \ar@{->>}[r] & {#2}}}
-
-\newcommand{\xto}[1]{\xrightarrow{\,#1\,}}
-\newcommand{\xlongto}[1]{\xrightarrow{\;\;#1\;\;}}
-\newcommand{\xfrom}[1]{\xleftarrow{\,#1\,}}
-\newcommand{\xlongfrom}[1]{\xleftarrow{\;\;#1\;\;}}
-
-\renewcommand{\implies}{\Longrightarrow}
-\newcommand{\Implies}{\;\Longrightarrow\;}
-\newcommand{\rarrow}{\textrightarrow\xspace}
-\newcommand{\larrow}{\textleftarrow\xspace}
+% Operators.
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\grph}{graph}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Diag}{\Delta}
+\def\imod#1{\allowbreak\mkern5mu({\operator@font mod}\,\,#1)}
 
 % Proof commands.
 \newcommand{\forw}{$\Longrightarrow\:\,$}
@@ -147,11 +145,28 @@
 \newcommand{\tfae}[2]{\emph{#1 \boldmath$\Rightarrow\,$#2.}}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
+% XY-pic directions.
+\newdir{ (}{{}*!/-5pt/@^{(}}
+\newdir{+(}{{}*!/-5pt/@_{(}}
+
+% Define a map.
+\newcommand{\defmap}[5]{
+  \begin{align*}
+    {#1} : {#2} &\longto {#3} \\
+    {#4} &\longmapsto {#5}
+  \end{align*}
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  Text aliases.
+%  Text commands.
 %
+
+% Common abbreviations.
+\newcommand{\term}{\uline}
+\newcommand{\ipa}[1]{\textipa{#1}}
+\newcommand{\textgk}[1]{\begin{greek}#1\end{greek}}
 
 % Subscript and superscript.
 \makeatletter
@@ -163,44 +178,58 @@
   {\m@th\ensuremath{%
     ^{\mbox{\fontsize\sf@size\z@#1}}%
     _{\mbox{\fontsize\sf@size\z@#2}}}}}
-
 \newcommand{\tsub}[1]{\textsubscript{#1}}
 \newcommand{\tsup}[1]{\textsuperscript{#1}}
 
-\newcommand{\us}{\textunderscore}
+% Symbols.
 \newcommand{\tld}{$\sim$}
-
-\newcommand{\ipa}[1]{\textipa{#1}}
-\newcommand{\textgk}[1]{\begin{greek}#1\end{greek}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%  Commands.
-%
-
+\newcommand{\us}{\textunderscore}
 \DeclareTextCommand{\_}{OT1}{%
   \leavevmode \kern.06em\vbox{\hrule width.45em}\kern.06em}
 
+% Accents.
+\newcommand{\rg}{\@ifstar{\@underring}{\r}}
+\newcommand{\@ring}[1]{\r{#1}}
+\newcommand{\@underring}[1]{\textipa{\r*{#1}}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  Environments.
+%  Arrows.
 %
 
-\newenvironment{itemize*}%
-  {\begin{itemize}[itemsep=0pt,parsep=0pt]}%
-  {\end{itemize}}
+% Vernacular aliases.
+\newcommand{\To}{\Rightarrow}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\from}{\leftarrow}
+\newcommand{\longfrom}{\longleftarrow}
+\renewcommand{\implies}{\Longrightarrow}
+\newcommand{\Implies}{\;\Longrightarrow\;}
 
-\newenvironment{enumerate*}%
-  {\begin{enumerate}[itemsep=0pt,parsep=0pt]}%
-  {\end{enumerate}}
+% Decorated arrows.
+\newcommand{\loopto}{\looparrowright}
+\newcommand{\hookto}{\hookrightarrow}
+\newcommand{\doubto}{\twoheadrightarrow}
+\newcommand{\lrto}{\leftrightarrow}
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand*{\longtwoheadrightarrow}{\ensuremath{\relbar\joinrel\twoheadrightarrow}}
 
-\newenvironment{pf}[1][Proof]%
-  {\begin{proof}[#1]\renewcommand{\qedsymbol}{}}%
-  {\end{proof}}
+% Functions.
+\newcommand{\inj}{\longhookrightarrow}
+\newcommand{\surj}{\longtwoheadrightarrow}
+\newcommand{\bij}{\longleftrightarrow}
+\newcommand{\xyinj}[2]{\xymatrix{{#1} \ar@{ (->}[r] & {#2}}}
+\newcommand{\xysurj}[2]{\xymatrix{{#1} \ar@{->>}[r] & {#2}}}
 
-\makesavenoteenv[tabunote]{tabular}
+% Labeled arrows.
+\newcommand{\xto}[1]{\xrightarrow{\,#1\,}}
+\newcommand{\xlongto}[1]{\xrightarrow{\;\;#1\;\;}}
+\newcommand{\xfrom}[1]{\xleftarrow{\,#1\,}}
+\newcommand{\xlongfrom}[1]{\xleftarrow{\;\;#1\;\;}}
+
+% Text arrows.
+\newcommand{\rarrow}{\textrightarrow\xspace}
+\newcommand{\larrow}{\textleftarrow\xspace}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -297,32 +326,3 @@
 \newcommand{\ceils}[1]{\ceil[0]{#1}}
 \newcommand{\floors}[1]{\floor[0]{#1}}
 \let\gen=\angs
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%  Math commands.
-%
-
-% Operators.
-\DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\coker}{coker}
-\DeclareMathOperator{\codim}{codim}
-\DeclareMathOperator{\grph}{graph}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\Map}{Map}
-\DeclareMathOperator{\Diag}{\Delta}
-\def\imod#1{\allowbreak\mkern5mu({\operator@font mod}\,\,#1)}
-
-% XY-pic directions.
-\newdir{ (}{{}*!/-5pt/@^{(}}
-\newdir{+(}{{}*!/-5pt/@_{(}}
-
-% Define a map.
-\newcommand{\defmap}[5]{
-  \begin{align*}
-    {#1} : {#2} &\longto {#3} \\
-    {#4} &\longmapsto {#5}
-  \end{align*}
-}
