@@ -13,65 +13,65 @@
 %
 
 % e-TeX interface.
-\usepackage{etex}
+\RequirePackage{etex}
 
 % Graphics.
-\usepackage[pdftex]{graphicx} % enhanced graphics
+\RequirePackage[pdftex]{graphicx} % enhanced graphics
 
 % AMS standard.
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
 
 % General.
-\usepackage{array}            % array augmentation
-\usepackage{xspace}           % optional terminal space
-\usepackage{ifthen}           % conditionals
+\RequirePackage{array}            % array augmentation
+\RequirePackage{xspace}           % optional terminal space
+\RequirePackage{ifthen}           % conditionals
 
 % Font and formatting.
-\usepackage{bm}               % bolded math text
-\usepackage{mathrsfs}         % math script
-\usepackage{pifont}           % postscript fonts
-\usepackage[normalem]{ulem}   % underline
-\usepackage[obeyspaces,hyphens,spaces]{url}
+\RequirePackage{bm}               % bolded math text
+\RequirePackage{mathrsfs}         % math script
+\RequirePackage{pifont}           % postscript fonts
+\RequirePackage[normalem]{ulem}   % underline
+\RequirePackage[obeyspaces,hyphens,spaces]{url}
 
 % TikZ.  Must be included before footnote.
 \newif\if@loadtikz\@loadtikzfalse
 \DeclareOption{tikz}{\@loadtikztrue}
 \ProcessOptions\relax
 \if@loadtikz
-  \usepackage{tikz}           % TikZ diagrams
-  \usepackage{tikz-qtree}     % TikZ syntax trees
+  \RequirePackage{tikz}           % TikZ diagrams
+  \RequirePackage{tikz-qtree}     % TikZ syntax trees
 \fi
 
 % Text sections.
-\usepackage{fancyhdr}         % header / footer
-\usepackage{caption}          % captions
-\usepackage{footnote}         % footnotes
-\usepackage{sectsty}          % section header styles
+\RequirePackage{fancyhdr}         % header / footer
+\RequirePackage{caption}          % captions
+\RequirePackage{footnote}         % footnotes
+\RequirePackage{sectsty}          % section header styles
 
 % Symbols.
-\usepackage{commath}          % common math symbols
-\usepackage{stmaryrd}         % computer science symbols
-\usepackage{textcomp}         % assorted text symbols
-\usepackage[safe]{tipa}       % IPA symbols
-\usepackage{lgreek}           % text Greek
+\RequirePackage{commath}          % common math symbols
+\RequirePackage{stmaryrd}         % computer science symbols
+\RequirePackage{textcomp}         % assorted text symbols
+\RequirePackage[safe]{tipa}       % IPA symbols
+\RequirePackage{lgreek}           % text Greek
 
 % Functionality.
-\usepackage{setspace}         % n-times spacing
-\usepackage{stackrel}         % stacked elements
-\usepackage{tensor}           % subscripts / superscripts
+\RequirePackage{setspace}         % n-times spacing
+\RequirePackage{stackrel}         % stacked elements
+\RequirePackage{tensor}           % subscripts / superscripts
 
 % Environments.
-\usepackage{multicol}         % multi-column documents
-\usepackage{tabu}             % tabular
-\usepackage{enumitem}         % enumerate, itemize
-\usepackage{fancyvrb}         % verbatim
-\usepackage{multirow}         % multi-row table cells
+\RequirePackage{multicol}         % multi-column documents
+\RequirePackage{tabu}             % tabular
+\RequirePackage{enumitem}         % enumerate, itemize
+\RequirePackage{fancyvrb}         % verbatim
+\RequirePackage{multirow}         % multi-row table cells
 
 % Diagrams.
-\usepackage[all,cmtip]{xy}    % arrow diagrams
+\RequirePackage[all,cmtip]{xy}    % arrow diagrams
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
