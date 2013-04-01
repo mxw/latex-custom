@@ -1,13 +1,20 @@
+%
+%  LaTeX mathnotes.sty
+%
+%  @author Max Wang
+%
+
 \ProvidesClass{mathnotes}
 
+% Pass options to common.
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{common}}
 \ProcessOptions\relax
 
-% include common
-\usepackage[letterpaper,text={7in,9in},centering]{geometry}
-\usepackage{common}
+% Set page geometry and include common.
+\RequirePackage[letterpaper,text={7in,9in},centering]{geometry}
+\RequirePackage{common}
 
-% theorem environments
+% Theorem environments.
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{claim}[thm]{Claim}
@@ -21,7 +28,7 @@
 \newtheorem*{note}{Note}
 \newtheorem{obs}[thm]{Observation}
 
-% custom section heading format
+% Custom section heading format.
 \renewcommand\section{\@startsection {section}{1}{\z@}%
                                      {-3.5ex \@plus -1ex \@minus -.2ex}%
                                      {2.3ex \@plus.2ex}%
@@ -30,5 +37,5 @@
   Lecture \csname the#1\endcsname \ ---\ %
 }
 
-% add'l amsthm overrides
+% Override proof font.
 \renewcommand{\proofname}{\textbf{Proof}}
