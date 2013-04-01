@@ -185,16 +185,6 @@
 \newcommand{\tsub}[1]{\textsubscript{#1}}
 \newcommand{\tsup}[1]{\textsuperscript{#1}}
 
-% Reclaim ^ and _ in text mode.
-\def\@super{^}\def\@sub{_}
-\catcode`^\active\catcode`_\active
-\def\@super@sub#1_#2{\textbothscript{#1}{#2}}
-\def\@sub@super#1^#2{\textbothscript{#2}{#1}}
-\def\@@super#1{\@ifnextchar_{\@super@sub{#1}}{\textsuperscript{#1}}}
-\def\@@sub#1{\@ifnextchar^{\@sub@super{#1}}{\textsubscript{#1}}}
-\def^{\let\@next\relax\ifmmode\@super\else\let\@next\@@super\fi\@next}
-\def_{\let\@next\relax\ifmmode\@sub\else\let\@next\@@sub\fi\@next}
-
 % Symbols.
 \newcommand{\tld}{$\sim$}
 \newcommand{\us}{\textunderscore}
