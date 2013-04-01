@@ -4,6 +4,9 @@
 %  @author Max Wang
 %
 
+\ProvidesClass{common}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %  Packages.
@@ -11,6 +14,9 @@
 
 % e-TeX interface.
 \usepackage{etex}
+
+% Graphics.
+\usepackage[pdftex]{graphicx} % enhanced graphics
 
 % AMS standard.
 \usepackage{amsfonts}
@@ -29,6 +35,15 @@
 \usepackage{pifont}           % postscript fonts
 \usepackage[normalem]{ulem}   % underline
 \usepackage[obeyspaces,hyphens,spaces]{url}
+
+% TikZ.  Must be included before footnote.
+\newif\if@loadtikz\@loadtikzfalse
+\DeclareOption{tikz}{\@loadtikztrue}
+\ProcessOptions\relax
+\if@loadtikz
+  \usepackage{tikz}           % TikZ diagrams
+  \usepackage{tikz-qtree}     % TikZ syntax trees
+\fi
 
 % Text sections.
 \usepackage{fancyhdr}         % header / footer
@@ -55,8 +70,7 @@
 \usepackage{fancyvrb}         % verbatim
 \usepackage{multirow}         % multi-row table cells
 
-% Graphics.
-\usepackage[pdftex]{graphicx} % enhanced graphics
+% Diagrams.
 \usepackage[all,cmtip]{xy}    % arrow diagrams
 
 

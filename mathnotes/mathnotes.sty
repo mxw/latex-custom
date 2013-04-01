@@ -1,3 +1,8 @@
+\ProvidesClass{mathnotes}
+
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{common}}
+\ProcessOptions\relax
+
 % include common
 \usepackage[letterpaper,text={7in,9in},centering]{geometry}
 \usepackage{common}
