@@ -126,6 +126,9 @@
 \newcommand{\clos}[1]{\overline{#1}}
 \newcommand{\resid}[1]{\overline{#1}}
 \newcommand{\cover}[1]{\widetilde{#1}}
+\newcommand{\overbar}[1]{%
+  \mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu%
+}
 
 % Operators.
 \DeclareMathOperator{\id}{id}
@@ -134,6 +137,8 @@
 \DeclareMathOperator{\codim}{codim}
 \DeclareMathOperator{\grph}{graph}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator{\Map}{Map}
 \DeclareMathOperator{\Diag}{\Delta}
 \def\imod#1{\allowbreak\mkern5mu({\operator@font mod}\,\,#1)}
