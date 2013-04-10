@@ -1,11 +1,23 @@
-% include common
-\usepackage[letterpaper,text={7in,9in},centering]{geometry}
-\usepackage{common}
+%
+%  LaTeX pset.sty
+%
+%  @author Max Wang
+%
 
-% static header
+\ProvidesClass{pset}
+
+% Pass options to common.
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{common}}
+\ProcessOptions\relax
+
+% Set page geometry and include common.
+\RequirePackage[letterpaper,text={7in,9in},centering]{geometry}
+\RequirePackage{common}
+
+% Static header.
 \fancyhead[RO]{Max Wang}
 
-% new maketitle command
+% Reformat title.
 \renewcommand{\maketitle}{%
   \thispagestyle{plain}%
   \begin{center}%
@@ -21,7 +33,7 @@
   \vspace{1em}
 }
 
-% theorem environments
+% Theorem environments.
 \newtheorem{thm}{Theorem}
 \newtheorem{prob}[thm]{Problem}
 \newtheorem{claim}[thm]{Claim}
@@ -36,7 +48,7 @@
 \newtheorem{elem}[ethm]{Lemma}
 \newtheorem{ecor}[ethm]{Corollary}
 
-% solution environment
+% Solution environment.
 \newenvironment{soln}[1][Solution]{\par
   \normalfont \topsep6\p@\@plus6\p@\relax
   \trivlist
@@ -47,7 +59,7 @@
   \endtrivlist\@endpefalse
 }
 
-% subproblems environment
+% Subproblems environment.
 \newcounter{subparts}[thm]
 \newenvironment{sub}{\par
   \stepcounter{subparts}

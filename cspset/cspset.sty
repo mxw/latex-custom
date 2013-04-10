@@ -1,16 +1,32 @@
-% include common
-\usepackage{pset}
+%
+%  LaTeX cspset.sty
+%
+%  @author Max Wang
+%
 
-% pseudocode
+\ProvidesClass{cspset}
 
-%% typewriter font
+% Pass options to common.
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{pset}}
+\ProcessOptions\relax
+\RequirePackage{pset}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Pseudocode.
+%
+%  XXX: Delete me once all dependencies are modified to use packages.
+%
+
+% Typewriter font.
 \DeclareFontShape{OT1}{cmtt}{bx}{n}{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
 
-%% custom verbatim environment
+% Custom verbatim environment.
 \DefineVerbatimEnvironment{code}{Verbatim}
   {commandchars=\\\{\},numbers=left,numbersep=10pt,xleftmargin=0.5in,gobble=2}
 
-%% keywords
+% Keywords.
 \newcommand{\type}[1]{\textbf{#1}}
 \newcommand{\com}[1]{/\textsuperscript{*} #1 \textsuperscript{*}/}
 \newcommand{\pcif}{\textbf{if}}
@@ -24,11 +40,17 @@
 \newcommand{\ret}{\textbf{return}}
 \newcommand{\print}{\textbf{print}}
 
-% miscellaneous commands
+% Miscellaneous commands.
 \newcommand{\func}[1]{\texttt{#1}}
 \newcommand{\var}[1]{\texttt{#1}}
 
-% operating semantics
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Commands.
+%
+
+% Operating semantics.
 \newcommand{\opsem}[4][]{\textsc{#2}\dfrac{\hquad #3 \hquad}{\hquad #4 \hquad}{#1}}
 \newcommand{\opkw}[2][0]{
 \ensuremath{\mathinner{
@@ -55,7 +77,7 @@
 }}
 }
 
-% lambda calculus
+% Lambda calculus.
 \newcommand{\ld}[1]{\lambda #1.\:}
 \newcommand{\Ld}[1]{\Lambda #1.\:}
 \newcommand{\Fa}[1]{\forall #1.\:}
