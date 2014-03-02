@@ -14,6 +14,54 @@
 \RequirePackage[letterpaper,text={7in,9in},centering]{geometry}
 \RequirePackage{common}
 
+% Table of contents.
+\newcommand{\maketoc}{%
+  \newlength{\origcolumnsep}%
+  \setlength{\origcolumnsep}{\columnsep}%
+  \setlength{\columnsep}{30pt}%
+  \begin{multicols}{2}%
+    \@starttoc{toc}%
+  \end{multicols}%
+  \setlength{\columnsep}{\origcolumnsep}%
+}
+
+\renewcommand{\cftsecfont}{\bfseries Lecture }
+\renewcommand{\cftsecaftersnum}{:}
+\renewcommand{\cftsecaftersnumb}{ }
+\renewcommand{\cftsecdotsep}{4.5}
+
+\newenvironment{intro}{
+  \setcounter{page}{-1}
+
+  \maketitle
+  \maketoc
+  \thispdfpagelabel{Title}
+  \thispagestyle{empty}
+
+  \newpage
+
+  \newlength{\origparindent}
+  \setlength{\origparindent}{\parindent}
+  \parindent=\z@
+
+  \newlength{\origparskip}
+  \setlength{\origparskip}{\parskip}
+  \parskip=0.5\baselineskip \advance\parskip by 0pt plus 2pt
+
+  \newlength{\origpartopsep}
+  \setlength{\origpartopsep}{\partopsep}
+  \partopsep=\z@
+
+  \thispdfpagelabel{Copyright}
+  \thispagestyle{empty}
+}{
+  \setlength{\parindent}{\origparindent}
+  \setlength{\parskip}{\origparskip}
+  \setlength{\partopsep}{\origpartopsep}
+
+  \newpage
+}
+
 % Theorem environments.
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
