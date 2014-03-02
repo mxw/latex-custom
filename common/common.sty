@@ -92,10 +92,10 @@
 %  Environments.
 %
 
+% Compact list environments.
 \newenvironment{itemize*}%
   {\begin{itemize}[itemsep=0pt,parsep=0pt]}%
   {\end{itemize}}
-
 \newenvironment{enumerate*}%
   {\begin{enumerate}[itemsep=0pt,parsep=0pt]}%
   {\end{enumerate}}
@@ -104,7 +104,12 @@
   {\begin{proof}[#1]\renewcommand{\qedsymbol}{}}%
   {\end{proof}}
 
+% Footnote-preserving tables.
 \makesavenoteenv[tabunote]{tabular}
+
+% Multirow / multicolumn helpers.
+\def\mcol{\multicolumn}
+\newcommand{\xcell}[2][l]{\begin{tabular}{#1}#2\end{tabular}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
