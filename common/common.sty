@@ -173,8 +173,10 @@
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
 % XY-pic directions.
+\makeatother
 \newdir{ (}{{}*!/-5pt/@^{(}}
 \newdir{+(}{{}*!/-5pt/@_{(}}
+\makeatletter
 
 % Define a map.
 \newcommand{\defmap}[5]{
@@ -246,8 +248,10 @@
 \newcommand{\inj}{\longhookrightarrow}
 \newcommand{\surj}{\longtwoheadrightarrow}
 \newcommand{\bij}{\longleftrightarrow}
+\makeatother
 \newcommand{\xyinj}[2]{\xymatrix{{#1} \ar@{ (->}[r] & {#2}}}
 \newcommand{\xysurj}[2]{\xymatrix{{#1} \ar@{->>}[r] & {#2}}}
+\makeatletter
 
 % Labeled arrows.
 \newcommand{\xto}[1]{\xrightarrow{\,#1\,}}
