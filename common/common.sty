@@ -28,13 +28,17 @@
 \RequirePackage{array}            % array augmentation
 \RequirePackage{xspace}           % optional terminal space
 \RequirePackage{ifthen}           % conditionals
+\RequirePackage{calc}             % calculations
 
 % Font and formatting.
 \RequirePackage{bm}               % bolded math text
 \RequirePackage{mathrsfs}         % math script
 \RequirePackage{pifont}           % postscript fonts
 \RequirePackage[normalem]{ulem}   % underline
-\RequirePackage[obeyspaces,hyphens,spaces]{url}
+
+% Links.
+\RequirePackage[obeyspaces,hyphens,spaces]{url} % url formatting
+\RequirePackage[linktocpage]{hyperref}          % hyperlinks
 
 % TikZ.  Must be included before footnote.
 \newif\if@loadtikz\@loadtikzfalse
