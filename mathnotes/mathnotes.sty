@@ -25,11 +25,14 @@
   \setlength{\columnsep}{\origcolumnsep}%
 }
 
-\renewcommand{\cftsecfont}{\bfseries Lecture }
-\renewcommand{\cftsecaftersnum}{:}
-\renewcommand{\cftsecaftersnumb}{ }
+% No section numbers in ToC.
+\renewcommand{\cftsecpresnum}{\begin{lrbox}{\@tempboxa}}
+\renewcommand{\cftsecaftersnum}{\end{lrbox}}
+
+% Lots of dots.
 \renewcommand{\cftsecdotsep}{4.5}
 
+% Introduction page.
 \newenvironment{intro}{
   \setcounter{page}{-1}
 
@@ -83,6 +86,11 @@
                                      {\normalfont\large\bfseries}}
 \renewcommand*{\@seccntformat}[1]{%
   Lecture \csname the#1\endcsname \ ---\ %
+}
+
+% Section wrapper.
+\newcommand*{\lecture}[1]{%
+  \section[Lecture \arabic{section}: #1]{#1}%
 }
 
 % Override proof font.
